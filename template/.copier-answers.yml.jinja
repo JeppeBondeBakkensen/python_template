@@ -4,9 +4,6 @@ _src_path: {{ _copier_answers.get("_src_path")|to_json }}
 project_name: {{ project_name|to_json }}
 package_name: {{ package_name|to_json }}
 project_description: {{ project_description|to_json }}
-author_name: {{ author_name|to_json }}
-author_email: {{ author_email|to_json }}
-github_username: {{ github_username|to_json }}
+github_username: {{ github_username|default("JeppeBondeBakkensen")|to_json }}
 repository_name: {{ repository_name|to_json }}
-line_length: {{ line_length|to_json }}
 copyright_year: {{ copyright_year|to_json }}

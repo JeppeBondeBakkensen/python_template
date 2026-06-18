@@ -16,13 +16,13 @@ Reusable Copier template for new Python projects using:
 From anywhere:
 
 ```bash
-copier copy "JohnnyDecimal/70-79 Projekter/python_template" path/to/new-project
+copier copy --vcs-ref=HEAD "JohnnyDecimal/70-79 Projekter/python_template" path/to/new-project
 ```
 
 Use defaults without prompts:
 
 ```bash
-copier copy --defaults "JohnnyDecimal/70-79 Projekter/python_template" path/to/new-project
+copier copy --vcs-ref=HEAD --defaults "JohnnyDecimal/70-79 Projekter/python_template" path/to/new-project
 ```
 
 After generation:

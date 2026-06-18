@@ -13,8 +13,8 @@ requires-python = ">=3.12"
 dependencies = ["numpy>=2.4.6", "scipy>=1.17.1", "sympy>=1.14.0"]
 
 [project.urls]
-Repository = "https://github.com/JeppeBondeBakkensen/{{ repository_name }}"
-Issues = "https://github.com/JeppeBondeBakkensen/{{ repository_name }}/issues"
+Repository = "https://github.com/{{ github_username|default('JeppeBondeBakkensen') }}/{{ repository_name }}"
+Issues = "https://github.com/{{ github_username|default('JeppeBondeBakkensen') }}/{{ repository_name }}/issues"
 
 # Optional dependencies are installed only when requested.
 # Example: uv sync --extra plot
@@ -88,4 +88,3 @@ branch = true
 minversion = "9.0"
 addopts = "-ra --cov --cov-report=term-missing"
 testpaths = ["tests"]
-

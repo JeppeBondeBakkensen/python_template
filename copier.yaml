@@ -6,22 +6,27 @@ _answers_file: .copier-answers.yml
 project_name:
   type: str
   help: Project/package distribution name
-  placeholder: my-python-project
+  default: my-python-project
 
 package_name:
   type: str
   help: Python import package name
-  placeholder: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
+  default: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
 
 project_description:
   type: str
   help: Short project description
-  placeholder: A Python project.
+  default: A Python project.
+
+github_username:
+  type: str
+  help: GitHub username or organization
+  default: JeppeBondeBakkensen
 
 repository_name:
   type: str
   help: GitHub repository name
-  placeholder: "{{ project_name }}"
+  default: "{{ project_name }}"
 
 copyright_year:
   type: str
