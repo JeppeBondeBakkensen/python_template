@@ -6,42 +6,22 @@ _answers_file: .copier-answers.yml
 project_name:
   type: str
   help: Project/package distribution name
-  default: my-python-project
+  placeholder: my-python-project
 
 package_name:
   type: str
   help: Python import package name
-  default: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
+  placeholder: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
 
 project_description:
   type: str
   help: Short project description
-  default: A Python project.
-
-author_name:
-  type: str
-  help: Author name
-  default: Jeppe Bonde Bakkensen
-
-author_email:
-  type: str
-  help: Author email
-  default: you@example.com
-
-github_username:
-  type: str
-  help: GitHub username or organization
-  default: JeppeBondeBakkensen
+  placeholder: A Python project.
 
 repository_name:
   type: str
   help: GitHub repository name
-  default: "{{ project_name }}"
-
-line_length:
-  type: int
-  help: Ruff and editor ruler line length
-  default: 120
+  placeholder: "{{ project_name }}"
 
 copyright_year:
   type: str
