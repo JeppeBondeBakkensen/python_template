@@ -3,7 +3,7 @@ name = "{{ project_name }}"
 dynamic = ["version"] # git tag v0.2.0,  git tag to view current tag
 description = "{{ project_description }}"
 readme = "README.md"
-authors = [{ name = "{{ author_name }}", email = "{{ author_email }}" }]
+authors = [{ name = "Jeppe Bonde Bakkensen", email = "Jeppebondebakkensen@gmail.com" }]
 license = "MIT"
 
 requires-python = ">=3.12"
@@ -13,8 +13,8 @@ requires-python = ">=3.12"
 dependencies = ["numpy>=2.4.6", "scipy>=1.17.1", "sympy>=1.14.0"]
 
 [project.urls]
-Repository = "https://github.com/{{ github_username }}/{{ repository_name }}"
-Issues = "https://github.com/{{ github_username }}/{{ repository_name }}/issues"
+Repository = "https://github.com/JeppeBondeBakkensen/{{ repository_name }}"
+Issues = "https://github.com/JeppeBondeBakkensen/{{ repository_name }}/issues"
 
 # Optional dependencies are installed only when requested.
 # Example: uv sync --extra plot
@@ -36,9 +36,6 @@ packages = ["src/{{ package_name }}"]
 [tool.hatch.version]
 source = "vcs"
 
-[tool.hatch.version.raw-options]
-fallback_version = "0.1.0"
-
 [dependency-groups]
 # Groups development-only dependencies
 # Example: uv sync --dev
@@ -57,7 +54,7 @@ default-groups = ["dev"]
 
 # Ruff settings
 [tool.ruff]
-line-length = {{ line_length }}
+line-length = 120
 target-version = "py312"
 
 [tool.ruff.lint]
@@ -92,4 +89,3 @@ minversion = "9.0"
 addopts = "-ra --cov --cov-report=term-missing"
 testpaths = ["tests"]
 
-[tool.ty.rules]
