@@ -1,0 +1,95 @@
+[project]
+name = "{{ project_name }}"
+dynamic = ["version"] # git tag v0.2.0,  git tag to view current tag
+description = "{{ project_description }}"
+readme = "README.md"
+authors = [{ name = "{{ author_name }}", email = "{{ author_email }}" }]
+license = "MIT"
+
+requires-python = ">=3.12"
+# Defines the list of packages that are required for the project,
+# along with the version constraints that should be used when installing them.
+# Example: uv sync
+dependencies = ["numpy>=2.4.6", "scipy>=1.17.1", "sympy>=1.14.0"]
+
+[project.urls]
+Repository = "https://github.com/{{ github_username }}/{{ repository_name }}"
+Issues = "https://github.com/{{ github_username }}/{{ repository_name }}/issues"
+
+# Optional dependencies are installed only when requested.
+# Example: uv sync --extra plot
+# Example: uv sync --all-extras
+[project.optional-dependencies]
+plot = ["matplotlib>=3.6.3", "seaborn>=0.13.2", "polars>=1.41.2"]
+ml = ["scikit-learn>=1.9.0"]
+torch = ["torch>=2.12.1", "torchvision>=0.27.1"]
+
+[build-system]
+# Defines how the package is built when running commands like `uv build`.
+# Uses Hatchling with hatch-vcs so releases get their version from Git tags.
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/{{ package_name }}"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+fallback_version = "0.1.0"
+
+[dependency-groups]
+# Groups development-only dependencies
+# Example: uv sync --dev
+dev = [
+    "ipykernel>=7.3.0",   # Jupyter notebook
+    "ruff>=0.15.15",      # Linter
+    "pytest>=9.0.3",      # Test runner
+    "dirty-equals>=0.11", # Nicer flexible assertions
+    "pydantic>=2.13.4",   # Data classes
+    "pytest-cov>=7.1.0",  # Coverage reports
+    "ty>=0.0.50",         # Type checker
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+# Ruff settings
+[tool.ruff]
+line-length = {{ line_length }}
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # import sorting
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "SIM", # simplify
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+known-first-party = ["{{ package_name }}"]
+
+[tool.ty]
+environment = { python-version = "3.12" }
+
+[tool.coverage.run]
+source = ["src/{{ package_name }}"]
+branch = true
+
+# Pytest settings
+[tool.pytest.ini_options]
+minversion = "9.0"
+addopts = "-ra --cov --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.ty.rules]
