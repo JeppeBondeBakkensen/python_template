@@ -25,7 +25,11 @@ Use defaults without prompts:
 copier copy --vcs-ref=HEAD --defaults "JohnnyDecimal/70-79 Projekter/python_template" path/to/new-project
 ```
 
-After generation:
+```bash 
+uvx copier copy \
+  --vcs-ref main \
+  https://github.com/JeppeBondeBakkensen/python_template.git
+```
 
 ```bash
 cd path/to/new-project
